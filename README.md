@@ -1,4 +1,4 @@
-#  JavaScript Style Guide() {
+#  JavaScript Style Guide
 
 
 ## Table of Contents
@@ -27,8 +27,6 @@
   1. [Type Casting & Coercion](#type-casting--coercion)
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
-  1. [Events](#events)
-  1. [jQuery](#jquery)
   1. [loops](#loops-and-conditional-statements)
   1. [Formatting](#formating)
   
@@ -3615,110 +3613,11 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-## Events
-
-  <a name="events--hash"></a><a name="24.1"></a>
-  - [25.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass an object literal (also known as a "hash") instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
-
-    ```javascript
-    // bad
-    $(this).trigger('listingUpdated', listing.id);
-
-    // ...
-
-    $(this).on('listingUpdated', (e, listingID) => {
-      // do something with listingID
-    });
-    ```
-
-    prefer:
-
-    ```javascript
-    // good
-    $(this).trigger('listingUpdated', { listingID: listing.id });
-
-    // ...
-
-    $(this).on('listingUpdated', (e, data) => {
-      // do something with data.listingID
-    });
-    ```
-
-  **[⬆ back to top](#table-of-contents)**
-
-## jQuery
-
-  <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
-  - [26.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`.
-
-    ```javascript
-    // bad
-    const sidebar = $('.sidebar');
-
-    // good
-    const $sidebar = $('.sidebar');
-
-    // good
-    const $sidebarBtn = $('.sidebar-btn');
-    ```
-
-  <a name="jquery--cache"></a><a name="25.2"></a>
-  - [26.2](#jquery--cache) Cache jQuery lookups.
-
-    ```javascript
-    // bad
-    function setSidebar() {
-      $('.sidebar').hide();
-
-      // ...
-
-      $('.sidebar').css({
-        'background-color': 'pink',
-      });
-    }
-
-    // good
-    function setSidebar() {
-      const $sidebar = $('.sidebar');
-      $sidebar.hide();
-
-      // ...
-
-      $sidebar.css({
-        'background-color': 'pink',
-      });
-    }
-    ```
-
-  <a name="jquery--queries"></a><a name="25.3"></a>
-  - [26.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](https://web.archive.org/web/20200414183810/https://jsperf.com/jquery-find-vs-context-sel/16)
-
-  <a name="jquery--find"></a><a name="25.4"></a>
-  - [26.4](#jquery--find) Use `find` with scoped jQuery object queries.
-
-    ```javascript
-    // bad
-    $('ul', '.sidebar').hide();
-
-    // bad
-    $('.sidebar').find('ul').hide();
-
-    // good
-    $('.sidebar ul').hide();
-
-    // good
-    $('.sidebar > ul').hide();
-
-    // good
-    $sidebar.find('ul').hide();
-    ```
-
-**[⬆ back to top](#table-of-contents)**
 
 ## Loops and Conditional Statements
 
   <a name="loops--initialization"></a><a name="4.1"></a>
-  - [27.1](#loops--initialization) When loops are required, choose the appropriate one from `for(;;)`, `for...of`, `while`, etc.
+  - [25.1](#loops--initialization) When loops are required, choose the appropriate one from `for(;;)`, `for...of`, `while`, etc.
 
     <br />
 
@@ -3749,7 +3648,7 @@
     ```
 
   <a name="loops--initializer"></a><a name="4.2"></a>
-  - [27.2](#loops--initializer) Make sure that you define the initializer properly by using the `const` keyword for `for...of` or `let` for the other loops. Don't omit it.
+  - [25.2](#loops--initializer) Make sure that you define the initializer properly by using the `const` keyword for `for...of` or `let` for the other loops. Don't omit it.
 
     ```javascript
     // good
@@ -3770,7 +3669,7 @@
     ```
 
   <a name="loops--foreach"></a><a name="4.3"></a>
-  - [27.3](#loops--foreach) When you need to access both the value and the index, you can use `.forEach()` instead of `for(;;)`.
+  - [25.3](#loops--foreach) When you need to access both the value and the index, you can use `.forEach()` instead of `for(;;)`.
 
     ```javascript
     // good
@@ -3787,13 +3686,13 @@
     ```
 
   <a name="loops--for-in"></a><a name="4.4"></a>
-  - [27.4](#loops--for-in) **Warning**: Never use `for...in` with arrays and strings.
+  - [25.4](#loops--for-in) **Warning**: Never use `for...in` with arrays and strings.
 
   <a name="loops--alternatives"></a><a name="4.5"></a>
-  - [27.5](#loops--alternatives) **Note**: Consider not using a `for` loop at all. If you are using an `Array` (or a `String` for some operations), consider using more semantic iteration methods instead, like `map()`, `every()`, `findIndex()`, `find()`, `includes()`, and many more.
+  - [25.5](#loops--alternatives) **Note**: Consider not using a `for` loop at all. If you are using an `Array` (or a `String` for some operations), consider using more semantic iteration methods instead, like `map()`, `every()`, `findIndex()`, `find()`, `includes()`, and many more.
 
   <a name="loops--braces"></a><a name="4.6"></a>
-  - [27.6](#loops--braces) Use braces with control flow statements and loops. This prevents forgetting to add the braces when adding more statements.
+  - [25.6](#loops--braces) Use braces with control flow statements and loops. This prevents forgetting to add the braces when adding more statements.
 
     ```javascript
     // good
@@ -3806,7 +3705,7 @@
     ```
 
   <a name="conditional-statements"></a><a name="4.7"></a>
-  - [27.7](#conditional-statements) If the `if` statement ends with a `return`, do not add an `else` statement.
+  - [25.7](#conditional-statements) If the `if` statement ends with a `return`, do not add an `else` statement.
 
     ```javascript
     // good
@@ -3831,7 +3730,7 @@
     ```
 
   <a name="switch-statements"></a><a name="4.8"></a>
-  - [27.8](#switch-statements) **Switch statements** can be a little tricky.
+  - [25.8](#switch-statements) **Switch statements** can be a little tricky.
 
     - Don't add a `break` statement after a `return` statement in a specific case.
 
@@ -3878,7 +3777,7 @@
     ```
 
   <a name="error-handling"></a><a name="4.9"></a>
-  - [27.9](#error-handling) **Error handling**: If certain states of your program throw uncaught errors, they will halt execution and potentially reduce the usefulness of the example. You should, therefore, catch errors using a `try...catch` block.
+  - [25.9](#error-handling) **Error handling**: If certain states of your program throw uncaught errors, they will halt execution and potentially reduce the usefulness of the example. You should, therefore, catch errors using a `try...catch` block.
 
     ```javascript
     try {
@@ -3907,7 +3806,7 @@ Here's the formatted JavaScript code formatting style guide based on the informa
 
 ## Formating
 
-[28.1]**Braces**
+[26.1]**Braces**
 Braces are used for all control structures, including `if`, `else`, `for`, `do`, `while`, and others. The opening brace appears at the end of the control statement line, and the closing brace appears on its own line aligned with the start of the control statement.
 
 ```javascript
@@ -3921,7 +3820,7 @@ if (shortCondition()) foo();
 
 
 
-[28.2] **Block indentation: +2 spaces**
+[26.2] **Block indentation: +2 spaces**
 Each new block or block-like construct increases the indent by two spaces. Braces follow the Kernighan and Ritchie style (Egyptian brackets) for nonempty blocks.
 
 ```javascript
@@ -3941,7 +3840,7 @@ class InnerClass {
 ```
 
 
-[28.3] **Statements**
+[26.3] **Statements**
 Each statement is on its own line and terminated with a semicolon.
 
 ```javascript
@@ -3952,7 +3851,7 @@ console.log(a, b); // => 1, 9;
 ```
 
 
-[28.4] **Column limit: 80**
+[26.4] **Column limit: 80**
 Lines should not exceed 80 characters, and line-wrapping should be used where necessary.
 
 ```javascript
@@ -3962,7 +3861,7 @@ currentEstimate =
 ```
 
 
-[28.5] **Line-wrapping**
+[26.5] **Line-wrapping**
 Line-wrapping is used to avoid exceeding the column limit, breaking at higher syntactic levels when possible.
 
 ```javascript
@@ -3972,7 +3871,7 @@ currentEstimate =
 ```
 
 
-[28.6] **Grouping parentheses**
+[26.6] **Grouping parentheses**
 Optional grouping parentheses should be used to clarify intent.
 
 ```javascript
