@@ -3951,9 +3951,8 @@ b = 9;
 console.log(a, b); // => 1, 9;
 ```
 
-#### Column Limit
 
-**4.4 Column limit: 80**
+[28.4] **Column limit: 80**
 Lines should not exceed 80 characters, and line-wrapping should be used where necessary.
 
 ```javascript
@@ -3963,7 +3962,7 @@ currentEstimate =
 ```
 
 
-[28.4] **Line-wrapping**
+[28.5] **Line-wrapping**
 Line-wrapping is used to avoid exceeding the column limit, breaking at higher syntactic levels when possible.
 
 ```javascript
