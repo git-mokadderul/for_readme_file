@@ -30,6 +30,7 @@
   1. [Events](#events)
   1. [jQuery](#jquery)
   1. [loops](#loops-and-conditional-statements)
+  1. [Formatting](#formating)
   
 ## Types
 
@@ -3898,3 +3899,84 @@
     ```
 
 **[⬆ back to top](#table-of-contents)**
+
+Here's the formatted JavaScript code formatting style guide based on the information provided:
+
+---
+
+
+## Formating
+
+[28.1]**Braces**
+Braces are used for all control structures, including `if`, `else`, `for`, `do`, `while`, and others. The opening brace appears at the end of the control statement line, and the closing brace appears on its own line aligned with the start of the control statement.
+
+```javascript
+// Disallowed: Single line if statement without braces
+if (someVeryLongCondition())
+  doSomething();
+
+// Allowed: Simple if statement without else
+if (shortCondition()) foo();
+```
+
+
+
+[28.2] **Block indentation: +2 spaces**
+Each new block or block-like construct increases the indent by two spaces. Braces follow the Kernighan and Ritchie style (Egyptian brackets) for nonempty blocks.
+
+```javascript
+class InnerClass {
+  constructor() {}
+
+  method(foo) {
+    if (condition(foo)) {
+      try {
+        something();
+      } catch (err) {
+        recover();
+      }
+    }
+  }
+}
+```
+
+
+[28.3] **Statements**
+Each statement is on its own line and terminated with a semicolon.
+
+```javascript
+const a = 1;
+let b = a;
+b = 9;
+console.log(a, b); // => 1, 9;
+```
+
+#### Column Limit
+
+**4.4 Column limit: 80**
+Lines should not exceed 80 characters, and line-wrapping should be used where necessary.
+
+```javascript
+currentEstimate =
+    calc(currentEstimate + x * currentEstimate) /
+        2.0;
+```
+
+
+[28.4] **Line-wrapping**
+Line-wrapping is used to avoid exceeding the column limit, breaking at higher syntactic levels when possible.
+
+```javascript
+currentEstimate =
+    calc(currentEstimate + x * currentEstimate) /
+        2.0;
+```
+
+
+[28.6] **Grouping parentheses**
+Optional grouping parentheses should be used to clarify intent.
+
+```javascript
+someFunction(obviousParam, /* shouldRender= */ true, /* name= */ 'hello');
+```
+
