@@ -29,6 +29,7 @@
   1. [Accessors](#accessors)
   1. [Events](#events)
   1. [jQuery](#jquery)
+  1. [loops](#loops-and-conditional-statements)
   
 ## Types
 
@@ -3709,6 +3710,191 @@
 
     // good
     $sidebar.find('ul').hide();
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+## Loops and Conditional Statements
+
+  <a name="loops--initialization"></a><a name="4.1"></a>
+  - [27.1](#loops--initialization) When loops are required, choose the appropriate one from `for(;;)`, `for...of`, `while`, etc.
+
+    <br />
+
+    - When iterating through all collection elements, avoid using the classical `for(;;)` loop; prefer `for...of` or `forEach()`. Note that if you are using a collection that is not an `Array`, you have to check that `for...of` is actually supported (it requires the variable to be iterable), or that the `forEach()` method is actually present. 
+
+    ```javascript
+    // Use for...of:
+    const dogs = ["Rex", "Lassie"];
+    for (const dog of dogs) {
+      console.log(dog);
+    }
+
+    // Or forEach():
+    const dogs = ["Rex", "Lassie"];
+    dogs.forEach((dog) => {
+      console.log(dog);
+    });
+    ```
+
+    - Do not use `for(;;)` — not only do you have to add an extra index, `i`, but you also have to track the length of the array. This can be error-prone for beginners.
+
+    ```javascript
+    // bad
+    const dogs = ["Rex", "Lassie"];
+    for (let i = 0; i < dogs.length; i++) {
+      console.log(dogs[i]);
+    }
+    ```
+
+  <a name="loops--initializer"></a><a name="4.2"></a>
+  - [27.2](#loops--initializer) Make sure that you define the initializer properly by using the `const` keyword for `for...of` or `let` for the other loops. Don't omit it.
+
+    ```javascript
+    // good
+    const cats = ["Athena", "Luna"];
+    for (const cat of cats) {
+      console.log(cat);
+    }
+
+    for (let i = 0; i < 4; i++) {
+      result += arr[i];
+    }
+
+    // bad
+    const cats = ["Athena", "Luna"];
+    for (i of cats) {
+      console.log(i);
+    }
+    ```
+
+  <a name="loops--foreach"></a><a name="4.3"></a>
+  - [27.3](#loops--foreach) When you need to access both the value and the index, you can use `.forEach()` instead of `for(;;)`.
+
+    ```javascript
+    // good
+    const gerbils = ["Zoé", "Chloé"];
+    gerbils.forEach((gerbil, i) => {
+      console.log(`Gerbil #${i}: ${gerbil}`);
+    });
+
+    // bad
+    const gerbils = ["Zoé", "Chloé"];
+    for (let i = 0; i < gerbils.length; i++) {
+      console.log(`Gerbil #${i}: ${gerbils[i]}`);
+    }
+    ```
+
+  <a name="loops--for-in"></a><a name="4.4"></a>
+  - [27.4](#loops--for-in) **Warning**: Never use `for...in` with arrays and strings.
+
+  <a name="loops--alternatives"></a><a name="4.5"></a>
+  - [27.5](#loops--alternatives) **Note**: Consider not using a `for` loop at all. If you are using an `Array` (or a `String` for some operations), consider using more semantic iteration methods instead, like `map()`, `every()`, `findIndex()`, `find()`, `includes()`, and many more.
+
+  <a name="loops--braces"></a><a name="4.6"></a>
+  - [27.6](#loops--braces) Use braces with control flow statements and loops. This prevents forgetting to add the braces when adding more statements.
+
+    ```javascript
+    // good
+    for (const car of storedCars) {
+      car.paint("red");
+    }
+
+    // bad
+    for (const car of storedCars) car.paint("red");
+    ```
+
+  <a name="conditional-statements"></a><a name="4.7"></a>
+  - [27.7](#conditional-statements) If the `if` statement ends with a `return`, do not add an `else` statement.
+
+    ```javascript
+    // good
+    if (test) {
+      // Perform something if test is true
+      // …
+      return;
+    }
+
+    // Perform something if test is false
+    // …
+
+    // bad
+    if (test) {
+      // Perform something if test is true
+      // …
+      return;
+    } else {
+      // Perform something if test is false
+      // …
+    }
+    ```
+
+  <a name="switch-statements"></a><a name="4.8"></a>
+  - [27.8](#switch-statements) **Switch statements** can be a little tricky.
+
+    - Don't add a `break` statement after a `return` statement in a specific case.
+
+    ```javascript
+    // good
+    switch (species) {
+      case "chicken":
+        return farm.shed;
+      case "horse":
+        return corral.entry;
+      default:
+        return "";
+    }
+
+    // bad
+    switch (species) {
+      case "chicken":
+        return farm.shed;
+        break;
+      case "horse":
+        return corral.entry;
+        break;
+      default:
+        return "";
+    }
+    ```
+
+    - Use `default` as the last case, and don't end it with a `break` statement. If you need to do it differently, add a comment explaining why.
+    - Remember that when you declare a local variable for a case, you need to use braces to define a scope:
+
+    ```javascript
+    switch (fruits) {
+      case "Orange": {
+        const slice = fruit.slice();
+        eat(slice);
+        break;
+      }
+      case "Apple": {
+        const core = fruit.extractCore();
+        recycle(core);
+        break;
+      }
+    }
+    ```
+
+  <a name="error-handling"></a><a name="4.9"></a>
+  - [27.9](#error-handling) **Error handling**: If certain states of your program throw uncaught errors, they will halt execution and potentially reduce the usefulness of the example. You should, therefore, catch errors using a `try...catch` block.
+
+    ```javascript
+    try {
+      console.log(getResult());
+    } catch (e) {
+      console.error(e);
+    }
+    ```
+
+    - When you don't need the parameter of the `catch` statement, omit it:
+
+    ```javascript
+    try {
+      console.log(getResult());
+    } catch {
+      console.error("An error happened!");
+    }
     ```
 
 **[⬆ back to top](#table-of-contents)**
