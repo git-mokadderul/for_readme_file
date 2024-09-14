@@ -30,8 +30,7 @@ Here’s a documentation template for running a Next.js project with GraphQL for
 
 Before starting, ensure the following software is installed:
 
-- **Node.js** (LTS version recommended)
-- **npm** or **yarn** (depending on your package manager)
+- **npm** (depending on your package manager)
 - **Docker** (optional for local PostgreSQL/Redis setup)
 - **GraphQL Client**: For querying and testing APIs.
 
@@ -47,8 +46,6 @@ Before starting, ensure the following software is installed:
    Install all required packages:
    ```bash
    npm install
-   # Or if you are using yarn:
-   yarn install
    ```
 
 3. **Set Up Environment Variables**:
@@ -57,9 +54,27 @@ Before starting, ensure the following software is installed:
      cp .env.example .env.local
      ```
    - Fill in the environment variables:
-     - `NEXT_PUBLIC_GRAPHQL_API_URL`: GraphQL API endpoint.
-     - `DATABASE_URL`: URL for your PostgreSQL or preferred database.
-     - `NEXT_PUBLIC_BASE_URL`: Base URL for the frontend (optional).
+
+### API and WebSocket
+- **`NEXT_PUBLIC_API_ROOT_URL`**: Base URL for API requests.
+- **`NEXT_PUBLIC_SOCKET_URL`**: WebSocket URL for real-time notifications.
+
+### Security and Configuration
+- **`NEXT_PUBLIC_ENCRYPTION_KEY`**: Key for encrypting/decrypting sensitive data.
+- **`NEXT_PUBLIC_BENEFIT_ID`**: ID for a specific benefit configuration.
+
+### Error Tracking and Monitoring
+- **`NEXT_PUBLIC_SENTRY_DSN`**: Sentry URL for error tracking.
+- **`NEXT_PUBLIC_SENTRY_ENV`**: Environment for Sentry (e.g., development, production).
+
+### Datadog Monitoring
+- **`NEXT_PUBLIC_DD_CLIENT_TOKEN`**: Client token for Datadog analytics.
+- **`NEXT_PUBLIC_DD_APPLICATION_KEY`**: Application key for Datadog.
+- **`NEXT_PUBLIC_DD_SERVICE`**: Name of the service monitored by Datadog.
+- **`NEXT_PUBLIC_DD_VERSION`**: Current version of the app for Datadog.
+- **`NEXT_PUBLIC_DD_SITE`**: Datadog site region (e.g., `datadoghq.com`).
+- **`NEXT_PUBLIC_DD_SESSION_SAMPLE_RATE`**: Percentage of sessions to sample (e.g., `100` for all).
+- **`NEXT_PUBLIC_DD_SESSION_REPLAY_SAMPLE_RATE`**: Percentage of sessions to capture for replay (e.g., `20`).
    
 4. **Database Setup** (Optional):
    If you're using Docker for the database setup, run:
@@ -77,13 +92,11 @@ To start the Next.js application:
    Run the development server:
    ```bash
    npm run dev
-   # Or with yarn:
-   yarn dev
    ```
    The app will be available at `http://localhost:3000`.
 
 2. **GraphQL Queries**:
-   Test the GraphQL API with your preferred tool (e.g., GraphiQL, Postman, or Insomnia) using the `NEXT_PUBLIC_GRAPHQL_API_URL` endpoint.
+   Test the GraphQL API using the `NEXT_PUBLIC_GRAPHQL_API_URL` endpoint.
 
 3. **Build and Start in Production Mode**:
    ```bash
@@ -108,7 +121,6 @@ To start the Next.js application:
 
 4. **Docker Issues**:
    - Ensure Docker is installed and running properly.
-   - Verify Docker Compose configuration for PostgreSQL if using the containerized setup.
 
 ---
 
@@ -130,6 +142,11 @@ The project uses a well-structured branching strategy:
 
 1. **Ensure the Feature Branch is Complete**:
    - Feature should pass tests and review.
+   ```bash
+   git checkout <feature-branch>
+   git commit -m"<feature-branch>:work"
+   git push origin <feature-branch>
+   ```
    
 2. **Merge the Feature Branch into DEV**:
    ```bash
