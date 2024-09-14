@@ -55,7 +55,7 @@ Before starting, ensure the following software is installed:
      ```
    - Fill in the environment variables:
 
-      1. API and WebSocket
+      # API and WebSocket
       - **`NEXT_PUBLIC_API_ROOT_URL`**: Base URL for API requests.
       - **`NEXT_PUBLIC_SOCKET_URL`**: WebSocket URL for real-time notifications.
 
