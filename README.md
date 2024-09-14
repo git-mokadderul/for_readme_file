@@ -204,3 +204,13 @@ Before releasing:
 3. **Rollback**: If necessary, revert to a stable release.
 
 ---
+
+## Error Monitoring with Sentry
+Ensure you’ve correctly set the Sentry DSN for error logging:
+
+In .env.production, add:
+```bash
+Copy code
+SENTRY_DSN=<your_sentry_dsn>
+```
+This configuration ensures Sentry is capturing errors in the production environment for proactive monitoring.
