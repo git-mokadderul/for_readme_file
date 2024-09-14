@@ -55,19 +55,19 @@ Before starting, ensure the following software is installed:
      ```
    - Fill in the environment variables:
 
-      # API and WebSocket
+      ### API and WebSocket
       - **`NEXT_PUBLIC_API_ROOT_URL`**: Base URL for API requests.
       - **`NEXT_PUBLIC_SOCKET_URL`**: WebSocket URL for real-time notifications.
 
-      2. Security and Configuration
+      ###  Security and Configuration
       - **`NEXT_PUBLIC_ENCRYPTION_KEY`**: Key for encrypting/decrypting sensitive data.
       - **`NEXT_PUBLIC_BENEFIT_ID`**: ID for a specific benefit configuration.
 
-      3. Error Tracking and Monitoring
+      ###  Error Tracking and Monitoring
       - **`NEXT_PUBLIC_SENTRY_DSN`**: Sentry URL for error tracking.
       - **`NEXT_PUBLIC_SENTRY_ENV`**: Environment for Sentry (e.g., development, production).
 
-      4. Datadog Monitoring
+      ###  Datadog Monitoring
       - **`NEXT_PUBLIC_DD_CLIENT_TOKEN`**: Client token for Datadog analytics.
       - **`NEXT_PUBLIC_DD_APPLICATION_KEY`**: Application key for Datadog.
       - **`NEXT_PUBLIC_DD_SERVICE`**: Name of the service monitored by Datadog.
