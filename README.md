@@ -55,34 +55,34 @@ Before starting, ensure the following software is installed:
      ```
    - Fill in the environment variables:
 
-### API and WebSocket
-- **`NEXT_PUBLIC_API_ROOT_URL`**: Base URL for API requests.
-- **`NEXT_PUBLIC_SOCKET_URL`**: WebSocket URL for real-time notifications.
+      1. API and WebSocket
+      - **`NEXT_PUBLIC_API_ROOT_URL`**: Base URL for API requests.
+      - **`NEXT_PUBLIC_SOCKET_URL`**: WebSocket URL for real-time notifications.
 
-### Security and Configuration
-- **`NEXT_PUBLIC_ENCRYPTION_KEY`**: Key for encrypting/decrypting sensitive data.
-- **`NEXT_PUBLIC_BENEFIT_ID`**: ID for a specific benefit configuration.
+      2. Security and Configuration
+      - **`NEXT_PUBLIC_ENCRYPTION_KEY`**: Key for encrypting/decrypting sensitive data.
+      - **`NEXT_PUBLIC_BENEFIT_ID`**: ID for a specific benefit configuration.
 
-### Error Tracking and Monitoring
-- **`NEXT_PUBLIC_SENTRY_DSN`**: Sentry URL for error tracking.
-- **`NEXT_PUBLIC_SENTRY_ENV`**: Environment for Sentry (e.g., development, production).
+      3. Error Tracking and Monitoring
+      - **`NEXT_PUBLIC_SENTRY_DSN`**: Sentry URL for error tracking.
+      - **`NEXT_PUBLIC_SENTRY_ENV`**: Environment for Sentry (e.g., development, production).
 
-### Datadog Monitoring
-- **`NEXT_PUBLIC_DD_CLIENT_TOKEN`**: Client token for Datadog analytics.
-- **`NEXT_PUBLIC_DD_APPLICATION_KEY`**: Application key for Datadog.
-- **`NEXT_PUBLIC_DD_SERVICE`**: Name of the service monitored by Datadog.
-- **`NEXT_PUBLIC_DD_VERSION`**: Current version of the app for Datadog.
-- **`NEXT_PUBLIC_DD_SITE`**: Datadog site region (e.g., `datadoghq.com`).
-- **`NEXT_PUBLIC_DD_SESSION_SAMPLE_RATE`**: Percentage of sessions to sample (e.g., `100` for all).
-- **`NEXT_PUBLIC_DD_SESSION_REPLAY_SAMPLE_RATE`**: Percentage of sessions to capture for replay (e.g., `20`).
+      4. Datadog Monitoring
+      - **`NEXT_PUBLIC_DD_CLIENT_TOKEN`**: Client token for Datadog analytics.
+      - **`NEXT_PUBLIC_DD_APPLICATION_KEY`**: Application key for Datadog.
+      - **`NEXT_PUBLIC_DD_SERVICE`**: Name of the service monitored by Datadog.
+      - **`NEXT_PUBLIC_DD_VERSION`**: Current version of the app for Datadog.
+      - **`NEXT_PUBLIC_DD_SITE`**: Datadog site region (e.g., `datadoghq.com`).
+      - **`NEXT_PUBLIC_DD_SESSION_SAMPLE_RATE`**: Percentage of sessions to sample (e.g., `100` for all).
+      - **`NEXT_PUBLIC_DD_SESSION_REPLAY_SAMPLE_RATE`**: Percentage of sessions to capture for replay (e.g., `20`).
    
 4. **Database Setup** (Optional):
    If you're using Docker for the database setup, run:
    ```bash
-   docker-compose up -d
+   docker-compose -f local.yml up
    ```
 
-   Alternatively, ensure your local PostgreSQL instance is running and the `DATABASE_URL` in your `.env.local` file is configured correctly.
+   Alternatively, ensure your database is running and the `DATABASE_URL` in your `.env.local` file is configured correctly.
 
 ### Running the Project
 
