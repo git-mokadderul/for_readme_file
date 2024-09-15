@@ -31,8 +31,6 @@ Here’s a documentation template for running a Next.js project with GraphQL for
 Before starting, ensure the following software is installed:
 
 - **npm** (depending on your package manager)
-- **Docker** (optional for local PostgreSQL/Redis setup)
-- **GraphQL Client**: For querying and testing APIs.
 
 ### Environment Setup
 
@@ -76,13 +74,6 @@ Before starting, ensure the following software is installed:
       - **`NEXT_PUBLIC_DD_SESSION_SAMPLE_RATE`**: Percentage of sessions to sample (e.g., `100` for all).
       - **`NEXT_PUBLIC_DD_SESSION_REPLAY_SAMPLE_RATE`**: Percentage of sessions to capture for replay (e.g., `20`).
    
-4. **Database Setup** (Optional):
-   If you're using Docker for the database setup, run:
-   ```bash
-   docker-compose -f local.yml up
-   ```
-
-   Alternatively, ensure your database is running and the `DATABASE_URL` in your `.env.local` file is configured correctly.
 
 ### Running the Project
 
@@ -95,10 +86,7 @@ To start the Next.js application:
    ```
    The app will be available at `http://localhost:3000`.
 
-2. **GraphQL Queries**:
-   Test the GraphQL API using the `NEXT_PUBLIC_GRAPHQL_API_URL` endpoint.
-
-3. **Build and Start in Production Mode**:
+2. **Build and Start in Production Mode**:
    ```bash
    npm run build
    npm start
@@ -115,12 +103,7 @@ To start the Next.js application:
    - Verify the `NEXT_PUBLIC_GRAPHQL_API_URL` is reachable.
    - Check if you need to authenticate the API by providing a token in headers.
 
-3. **Database Connection Issues**:
-   - Ensure the database is running locally or through Docker.
-   - Check the `DATABASE_URL` in `.env.local`.
 
-4. **Docker Issues**:
-   - Ensure Docker is installed and running properly.
 
 ---
 
