@@ -36,7 +36,7 @@ Before starting, ensure the following software is installed:
 
 1. **Clone the Repository**:
    ```bash
-   git clone $ git clone https://github.com/Up-Brasil-Opal/opal-hr-dashboard.git
+   git clone  https://github.com/Up-Brasil-Opal/opal-hr-dashboard.git
    cd opal-hr-dashboard
    ```
 
