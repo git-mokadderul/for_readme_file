@@ -36,8 +36,8 @@ Before starting, ensure the following software is installed:
 
 1. **Clone the Repository**:
    ```bash
-   git clone <repository-url>.git
-   cd nextjs-graphql-project
+   git clone $ git clone https://github.com/Up-Brasil-Opal/opal-hr-dashboard.git
+   cd opal-hr-dashboard
    ```
 
 2. **Install Dependencies**:
@@ -100,7 +100,7 @@ To start the Next.js application:
    - Restart the development server after changing environment variables.
 
 2. **GraphQL API Connectivity**:
-   - Verify the `NEXT_PUBLIC_GRAPHQL_API_URL` is reachable.
+   - Verify the `NEXT_PUBLIC_API_ROOT_URL` is reachable.
    - Check if you need to authenticate the API by providing a token in headers.
 
 
@@ -127,7 +127,7 @@ The project uses a well-structured branching strategy:
    - Feature should pass tests and review.
    ```bash
    git checkout <feature-branch>
-   git commit -m"<feature-branch>:work"
+   git commit -m "<feature-branch>:work"
    git push origin <feature-branch>
    ```
    
